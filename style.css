@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #7474BF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #348AC7, #7474BF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #348AC7, #7474BF);
+    /* W3C, IE 10+/ Edge, Fifirefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+div {
+    width: 400px;
+    padding-bottom: 5px;
+    margin: 2rem auto;
+    background: #ccc;
+    text-align: center;
+}
+
+li:nth-child(odd) {
+    background: silver;
+}
+
+li:nth-child(even) {
+    background: grey;
+}
+
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    text-align: left;
+    /* margin: 0;
+    padding: 0; */
+}
+
+/* li:hover {
+    color: white;
+    background: black;
+} */
+
+.hidden {
+    display: none;
+}
+
+label {
+    color: black;
+    font-size: 1.5rem;
+}
