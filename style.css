@@ -1,5 +1,13 @@
+*::before,
+*::after,
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
@@ -9,22 +17,24 @@ body {
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #348AC7, #7474BF);
     /* W3C, IE 10+/ Edge, Fifirefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-div {
+#todo {
     width: 400px;
     padding-bottom: 5px;
     margin: 2rem auto;
-    background: #ccc;
+    background: #eee;
     text-align: center;
 }
 
 li:nth-child(odd) {
-    background: silver;
+    background: #e3dede;
 }
 
 li:nth-child(even) {
-    background: grey;
+    background: #a3a1a1;
+    ;
 }
 
 ol {
@@ -34,11 +44,16 @@ ol {
 
 li {
     text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    padding-left: 1rem;
+    /* padding: 1rem; */
     /* margin: 0;
     padding: 0; */
 }
 
-/* li:hover {
+/* 
+li:hover {
     color: white;
     background: black;
 } */
@@ -48,6 +63,30 @@ li {
 }
 
 label {
+    display: block;
+    font-weight: 900;
     color: black;
-    font-size: 1.5rem;
+    font-size: 3rem;
+    margin-bottom: .8rem;
+}
+
+button {
+    margin-right: .5rem;
+    border: none;
+    color: white;
+    padding: .6rem;
+    background-color: #8b8687;
+    border-radius: .8rem;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type=text] {
+    font-size: 1.8rem;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.done-todo {
+    text-decoration: line-through;
 }

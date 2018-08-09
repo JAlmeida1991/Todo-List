@@ -31,6 +31,15 @@ ol.addEventListener("mouseout", function (e) {
     hideDeleteButton(e);
 });
 
+ol.addEventListener("click", function (e) {
+    if (e.target.nodeName === "LI" && e.target.className === '') {
+        e.target.className = "done-todo";
+    } else {
+        e.target.className = '';
+    }
+});
+
+
 function showDeleteButton(e) {
     if (e.target.nodeName === "LI") {
         e.target.firstChild.className = "";
