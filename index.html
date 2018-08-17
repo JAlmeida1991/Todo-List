@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <title>Todo List</title>
 </head>
+
 <div id="todo">
-    <label id="title" for="input">Todo List</label>
-    <input type="text" id="input" placeholder="Enter a New Todo">
+    <form id="form" action="#" method="GET">
+        <label id="title" for="input">Todo List</label>
+        <input type="text" id="input" placeholder="Enter a New Todo">
+    </form>
+    <!-- Ordered list must not be a child of the form since after submiting a todo and pressing enter, JS will think that it is a click event -->
     <ol>
 
     </ol>
 </div>
-
 
 <body>
 

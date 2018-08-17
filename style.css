@@ -1,54 +1,53 @@
 *::before,
 *::after,
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    background: #7474BF;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #348AC7, #7474BF);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #348AC7, #7474BF);
-    /* W3C, IE 10+/ Edge, Fifirefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #7474bf;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #348ac7, #7474bf);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #348ac7, #7474bf);
+  /* W3C, IE 10+/ Edge, Fifirefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #todo {
-    width: 400px;
-    padding-bottom: 5px;
-    margin: 2rem auto;
-    background: #eee;
-    text-align: center;
+  width: 400px;
+  padding-bottom: 5px;
+  margin: 2rem auto;
+  background: #eee;
+  text-align: center;
 }
 
 li:nth-child(odd) {
-    background: #e3dede;
+  background: #e3dede;
 }
 
 li:nth-child(even) {
-    background: #a3a1a1;
-    ;
+  background: #a3a1a1;
 }
 
 ol {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 li {
-    text-align: left;
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
-    padding-left: 1rem;
-    /* padding: 1rem; */
-    /* margin: 0;
+  text-align: left;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  /* padding: 1rem; */
+  /* margin: 0;
     padding: 0; */
 }
 
@@ -59,34 +58,34 @@ li:hover {
 } */
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-label {
-    display: block;
-    font-weight: 900;
-    color: black;
-    font-size: 3rem;
-    margin-bottom: .8rem;
+#title {
+  display: block;
+  font-weight: 900;
+  color: black;
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
 }
 
 button {
-    margin-right: .5rem;
-    border: none;
-    color: white;
-    padding: .6rem;
-    background-color: #8b8687;
-    border-radius: .8rem;
-    outline: none;
-    cursor: pointer;
+  margin-right: 0.5rem;
+  border: none;
+  color: white;
+  padding: 0.6rem;
+  background-color: #8b8687;
+  border-radius: 0.8rem;
+  outline: none;
+  cursor: pointer;
 }
 
-input[type=text] {
-    font-size: 1.8rem;
-    width: 80%;
-    margin-bottom: 1rem;
+input[type="text"] {
+  font-size: 1.8rem;
+  width: 80%;
+  margin-bottom: 1rem;
 }
 
 .done-todo {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
