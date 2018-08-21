@@ -2,59 +2,53 @@ const form = document.querySelector("#form");
 const input = document.querySelector("#input");
 const ol = document.querySelector("ol");
 
-// ** Need to implement cross though logic... if user closes session
-
-// Check if local storage exists in users browser return an empty array if otherwise
-let todos = localStorage.getItem("todos");
+// todos will either be null or a array of previous todos
+let todos = JSON.parse(localStorage.getItem("todos"));
+// if todos is null todos will be set an an empty array
 if (!todos) {
   todos = [];
-  // If todos is found in localStorage, display in new session
 } else {
+  // If todos is found in localStorage, display in new session
   displaylocalStorageTodos();
 }
 
-// DOM TRANSVERSAL WITH TEXT CONTENT IS BETTER WAY ACCEPT USER INPUT
+// *** DOM TRANSVERSAL WITH TEXT CONTENT IS BETTER WAY ACCEPT USER INPUT USING INNERHTML ***
 form.addEventListener("submit", function(e) {
+  // If user did enter a todo then excute the following code.
   if (input.value) {
-    if (typeof todos === "string") {
-      todos = JSON.parse(todos);
-    }
     // If a completed is true for a todo, display line through class
     todos.push({
       value: input.value,
       completed: false
     });
-    // Need to reset local storage everytime todos updates...
+    // Need to set local storage everytime todos updates...
     localStorage.setItem("todos", JSON.stringify(todos));
-    generateHTMLNodes(input.value);
+    generateHTMLNode(input.value);
     input.value = "";
   }
+  // Need to prevent the default status even if user does not enter anything
   e.preventDefault();
 });
 
 ol.addEventListener("click", function(e) {
   if (e.target.nodeName === "LI") {
     e.target.classList.toggle("done-todo");
+    const li = e.target;
+    // Need to call Array.from since ol.children is an HTMLCollection not a node list
+    const todoIndex = Array.from(ol.children).indexOf(li);
+    todos[todoIndex].completed = !todos[todoIndex].completed;
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 });
 
 ol.addEventListener("click", function(e) {
   if (e.target.nodeName === "BUTTON") {
-    let li = e.target.parentNode;
-    //
+    const li = e.target.parentNode;
+    // Need to call Array.from since ol.children is an HTMLCollection not a node list
     const todoIndex = Array.from(ol.children).indexOf(li);
-    // console.log(todoIndex);
-    //
-    if (typeof todos === "string") {
-      todos = JSON.parse(todos);
-      todos.splice(todoIndex, 1);
-      todos = JSON.stringify(todos);
-    } else {
-      todos.splice(todoIndex, 1);
-      todos = JSON.stringify(todos);
-    }
+    todos.splice(todoIndex, 1);
     // Need to reset local storage everytime todos updates...
-    localStorage.setItem("todos", todos);
+    localStorage.setItem("todos", JSON.stringify(todos));
     ol.removeChild(li);
   }
 });
@@ -81,15 +75,17 @@ function hideDeleteButton(e) {
 }
 
 function displaylocalStorageTodos() {
-  if (typeof todos === "string") {
-    JSON.parse(todos).forEach(function(todo) {
-      // Passing in todo.value rather than just todo since each todo is an object
-      generateHTMLNodes(todo.value);
-    });
-  }
+  // Passing in todo.value rather than just todo since each todo is an object
+  todos.forEach(function(todo) {
+    if (todo.completed) {
+      generateHTMLNode(todo.value).className = "done-todo";
+    } else {
+      generateHTMLNode(todo.value);
+    }
+  });
 }
 
-function generateHTMLNodes(el) {
+function generateHTMLNode(el) {
   const li = document.createElement("li");
   const button = document.createElement("button");
   const content = document.createTextNode(`${el}`);
@@ -98,4 +94,6 @@ function generateHTMLNodes(el) {
   li.appendChild(button);
   li.appendChild(content);
   ol.appendChild(li);
+  // returing the individual li in order to display done-todo even after user closes session
+  return li;
 }
