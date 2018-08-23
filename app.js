@@ -97,3 +97,20 @@ function generateHTMLNode(el) {
   // returing the individual li in order to display done-todo even after user closes session
   return li;
 }
+
+// This event handler is responsible for updating any changes from one window to another window. User will have updated in run time without refreshing.
+window.addEventListener("storage", function(e) {
+  // 1. Need to check if localStorage key is actually for todos
+  if (e.key === "todos") {
+    // 2. Need to delete all todos first otherwise todos will stack...
+    while (ol.firstChild) {
+      ol.removeChild(ol.firstChild);
+    }
+    // 3. If this is a new session, need to set todos as the value from JSON.parse
+    todos = JSON.parse(localStorage.getItem("todos"));
+    // 4. Set any changes to localStorage
+    localStorage.setItem("todos", e.newValue);
+    // 5. Display new todos
+    displaylocalStorageTodos();
+  }
+});
