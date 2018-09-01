@@ -1,7 +1,8 @@
 *::before,
 *::after,
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -12,67 +13,62 @@ html {
 
 body {
   background: #7474bf;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #348ac7, #7474bf);
-  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#348ac7), to(#7474bf));
   background: linear-gradient(to left, #348ac7, #7474bf);
-  /* W3C, IE 10+/ Edge, Fifirefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-#todo {
-  width: 40rem;
-  padding-bottom: 5px;
-  margin: 2rem auto;
-  background: #eee;
-  text-align: center;
-}
-
-li:nth-child(odd) {
-  background: #e3dede;
-}
-
-li:nth-child(even) {
-  background: #a3a1a1;
-}
-
-ol {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  text-align: left;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  /* padding: 1rem; */
-  /* margin: 0;
-    padding: 0; */
-}
-
-/* 
-li:hover {
-    color: white;
-    background: black;
-} */
-
-.hidden {
-  display: none;
 }
 
 #title {
   display: block;
   font-weight: 900;
-  color: black;
+  color: #000;
   font-size: 3rem;
   margin-bottom: 0.8rem;
+}
+
+#todo {
+  width: 40rem;
+  padding-bottom: 0.5rem;
+  margin: 2rem auto;
+  background: #eee;
+  text-align: center;
+}
+
+@media only screen and (max-width: 40em) {
+  #todo {
+    width: 35rem;
+  }
+}
+
+@media only screen and (max-width: 35em) {
+  #todo {
+    width: 30rem;
+  }
+}
+
+#list {
+  list-style: none;
+}
+
+#list li {
+  text-align: left;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+}
+
+#list li:nth-child(odd) {
+  background: #e3dede;
+}
+
+#list li:nth-child(even) {
+  background: #a3a1a1;
 }
 
 button {
   margin-right: 0.5rem;
   border: none;
-  color: white;
+  color: #fff;
   padding: 0.6rem;
   background-color: #8b8687;
   border-radius: 0.8rem;
@@ -81,16 +77,25 @@ button {
 }
 
 button:active {
-  transform: translateY(0.2rem);
-  box-shadow: 0 0.1rem 0.1rem #333;
+  -webkit-transform: translateY(0.2rem);
+          transform: translateY(0.2rem);
+  -webkit-box-shadow: 0 0.1rem 0.1rem #333;
+          box-shadow: 0 0.1rem 0.1rem #333;
 }
 
 input[type="text"] {
   font-size: 1.8rem;
   width: 80%;
   margin-bottom: 1rem;
+  outline-color: #7474bf;
 }
 
-.done-todo {
+.done-todo-js {
   text-decoration: line-through;
+  color: #c0392b;
 }
+
+.hidden-js {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

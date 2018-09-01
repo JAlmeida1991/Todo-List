@@ -1,0 +1,101 @@
+$colorPrimary: #7474bf;
+$colorSecondary: #348ac7;
+$todoOdd: #e3dede;
+$todoEven: #a3a1a1;
+$btnColor: #8b8687;
+$doneTodo: #c0392b;
+
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $colorPrimary;
+  background: linear-gradient(to left, $colorSecondary, $colorPrimary);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#title {
+  display: block;
+  font-weight: 900;
+  color: #000;
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+}
+
+#todo {
+  width: 40rem;
+  padding-bottom: 0.5rem;
+  margin: 2rem auto;
+  background: #eee;
+  text-align: center;
+
+  @media only screen and (max-width: 40em) {
+    width: 35rem;
+  }
+  @media only screen and (max-width: 35em) {
+    width: 30rem;
+  }
+}
+
+#list {
+  list-style: none;
+
+  li {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+
+    &:nth-child(odd) {
+      background: $todoOdd;
+    }
+
+    &:nth-child(even) {
+      background: $todoEven;
+    }
+  }
+}
+
+button {
+  margin-right: 0.5rem;
+  border: none;
+  color: #fff;
+  padding: 0.6rem;
+  background-color: $btnColor;
+  border-radius: 0.8rem;
+  outline: none;
+  cursor: pointer;
+
+  &:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.1rem 0.1rem #333;
+  }
+}
+
+input[type="text"] {
+  font-size: 1.8rem;
+  width: 80%;
+  margin-bottom: 1rem;
+  outline-color: $colorPrimary;
+
+  //   &:placeholder-shown {
+  //     color: $colorSecondary;
+  //   }
+}
+
+.done-todo-js {
+  text-decoration: line-through;
+  color: $doneTodo;
+}
+.hidden-js {
+  display: none;
+}

@@ -1,6 +1,6 @@
 const form = document.querySelector("#form");
 const input = document.querySelector("#input");
-const ol = document.querySelector("ol");
+const ol = document.querySelector("#list");
 
 // todos will either be null or a array of previous todos
 let todos = JSON.parse(localStorage.getItem("todos"));
@@ -30,9 +30,26 @@ form.addEventListener("submit", function(e) {
   e.preventDefault();
 });
 
+// This event handler is responsible for updating any changes from one window to another window. User will have updated in run time without refreshing.
+window.addEventListener("storage", function(e) {
+  // 1. Need to check if localStorage key is actually for todos
+  if (e.key === "todos") {
+    // 2. Need to delete all todos first otherwise todos will stack...
+    while (ol.firstChild) {
+      ol.removeChild(ol.firstChild);
+    }
+    // 3. If this is a new session, need to set todos as the value from JSON.parse
+    todos = JSON.parse(localStorage.getItem("todos"));
+    // 4. Set any changes to localStorage
+    localStorage.setItem("todos", e.newValue);
+    // 5. Display new todos
+    displaylocalStorageTodos();
+  }
+});
+
 ol.addEventListener("click", function(e) {
   if (e.target.nodeName === "LI") {
-    e.target.classList.toggle("done-todo");
+    e.target.classList.toggle("done-todo-js");
     const li = e.target;
     // Need to call Array.from since ol.children is an HTMLCollection not a node list
     const todoIndex = Array.from(ol.children).indexOf(li);
@@ -68,9 +85,9 @@ function showDeleteButton(e) {
 
 function hideDeleteButton(e) {
   if (e.target.nodeName === "LI") {
-    e.target.firstChild.className = "hidden";
+    e.target.firstChild.className = "hidden-js";
   } else if (e.target.nodeName === "BUTTON") {
-    e.target.className = "hidden";
+    e.target.className = "hidden-js";
   }
 }
 
@@ -78,7 +95,7 @@ function displaylocalStorageTodos() {
   // Passing in todo.value rather than just todo since each todo is an object
   todos.forEach(function(todo) {
     if (todo.completed) {
-      generateHTMLNode(todo.value).className = "done-todo";
+      generateHTMLNode(todo.value).className = "done-todo-js";
     } else {
       generateHTMLNode(todo.value);
     }
@@ -90,27 +107,10 @@ function generateHTMLNode(el) {
   const button = document.createElement("button");
   const content = document.createTextNode(`${el}`);
   button.textContent = "Delete";
-  button.className = "hidden";
+  button.className = "hidden-js";
   li.appendChild(button);
   li.appendChild(content);
   ol.appendChild(li);
-  // returing the individual li in order to display done-todo even after user closes session
+  // returning the individual li in order to display done-todo even after user closes session
   return li;
 }
-
-// This event handler is responsible for updating any changes from one window to another window. User will have updated in run time without refreshing.
-window.addEventListener("storage", function(e) {
-  // 1. Need to check if localStorage key is actually for todos
-  if (e.key === "todos") {
-    // 2. Need to delete all todos first otherwise todos will stack...
-    while (ol.firstChild) {
-      ol.removeChild(ol.firstChild);
-    }
-    // 3. If this is a new session, need to set todos as the value from JSON.parse
-    todos = JSON.parse(localStorage.getItem("todos"));
-    // 4. Set any changes to localStorage
-    localStorage.setItem("todos", e.newValue);
-    // 5. Display new todos
-    displaylocalStorageTodos();
-  }
-});
