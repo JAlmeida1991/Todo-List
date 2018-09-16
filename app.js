@@ -13,7 +13,7 @@ if (!todos) {
 }
 
 // *** DOM TRANSVERSAL WITH TEXT CONTENT IS BETTER WAY ACCEPT USER INPUT USING INNERHTML ***
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", e => {
   // If user did enter a todo then excute the following code.
   if (input.value) {
     // If a completed is true for a todo, display line through class
@@ -25,13 +25,16 @@ form.addEventListener("submit", function(e) {
     localStorage.setItem("todos", JSON.stringify(todos));
     generateHTMLNode(input.value);
     input.value = "";
+  } else {
+    // If user does not enter a todo, display error message
+    displayError();
   }
   // Need to prevent the default status even if user does not enter anything
   e.preventDefault();
 });
 
 // This event handler is responsible for updating any changes from one window to another window. User will have updated in run time without refreshing.
-window.addEventListener("storage", function(e) {
+window.addEventListener("storage", e => {
   // 1. Need to check if localStorage key is actually for todos
   if (e.key === "todos") {
     // 2. Need to delete all todos first otherwise todos will stack...
@@ -47,7 +50,7 @@ window.addEventListener("storage", function(e) {
   }
 });
 
-ol.addEventListener("click", function(e) {
+ol.addEventListener("click", e => {
   if (e.target.nodeName === "LI") {
     e.target.classList.toggle("done-todo-js");
     const li = e.target;
@@ -58,7 +61,7 @@ ol.addEventListener("click", function(e) {
   }
 });
 
-ol.addEventListener("click", function(e) {
+ol.addEventListener("click", e => {
   if (e.target.nodeName === "BUTTON") {
     const li = e.target.parentNode;
     // Need to call Array.from since ol.children is an HTMLCollection not a node list
@@ -113,4 +116,25 @@ function generateHTMLNode(el) {
   ol.appendChild(li);
   // returning the individual li in order to display done-todo even after user closes session
   return li;
+}
+
+function displayError() {
+  // This will prevent the user from spamming error messages
+  if (document.querySelector(".error-js")) {
+    document.querySelector(".error-js").remove();
+  }
+  const error = document.createElement("div");
+  const icon = document.createElement("i");
+  const message = document.createTextNode("Please enter a valid todo...");
+  icon.className = "fas fa-exclamation-triangle";
+  icon.style.height = "1rem";
+  icon.style.marginRight = "1rem";
+  error.appendChild(icon);
+  error.appendChild(message);
+  error.className = "error-js";
+  form.insertAdjacentElement("afterend", error);
+  // Remove the error after 1 second
+  setTimeout(() => {
+    error.remove();
+  }, 1000);
 }
