@@ -12,17 +12,20 @@
     <title>Todo List</title>
 </head>
 
-<div id="todo">
-    <form id="form" action="#" method="GET">
-        <label id="title" for="input">Todo List</label>
+<div class="todo">
+    <form class="form" action="#" method="GET">
+        <label class="title" for="input">Todo List</label>
+
         <input type="text" id="input" placeholder="Enter a New Todo">
         <button class="form-btn">Submit</button>
+
     </form>
     <!-- Ordered list must not be a child of the form since after submiting a todo and pressing enter, JS will think that it is a click event -->
-    <ol id='list'>
+    <ol class='list'>
 
     </ol>
 </div>
+
 
 <body>
 

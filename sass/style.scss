@@ -1,6 +1,6 @@
 @import "base";
 
-#title {
+.title {
   display: block;
   font-weight: 900;
   color: #000;
@@ -10,7 +10,7 @@
 
 // Form display
 
-#todo {
+.todo {
   width: 40rem;
   padding-bottom: 0.5rem;
   margin: 2rem auto;
@@ -25,7 +25,7 @@
   }
 }
 
-#list {
+.list {
   list-style: none;
 
   li {
@@ -55,16 +55,20 @@ button {
   border-radius: 0.8rem;
   outline: none;
   cursor: pointer;
+  box-shadow: 0 0.3rem 0.2rem #333;
+  transition: all 0.25s;
 
   &:active {
     transform: translateY(0.1rem);
-    box-shadow: 0 0.1rem 0.1rem #333;
+    box-shadow: none;
   }
 
   &.form-btn {
     background-color: $submitBtn;
     margin-right: 0;
     padding: 0.8rem;
+    position: relative;
+    bottom: 0.2rem;
   }
 }
 

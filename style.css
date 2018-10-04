@@ -18,7 +18,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#title {
+.title {
   display: block;
   font-weight: 900;
   color: #000;
@@ -26,7 +26,7 @@ body {
   margin-bottom: 0.8rem;
 }
 
-#todo {
+.todo {
   width: 40rem;
   padding-bottom: 0.5rem;
   margin: 2rem auto;
@@ -35,33 +35,33 @@ body {
 }
 
 @media only screen and (max-width: 40em) {
-  #todo {
+  .todo {
     width: 35rem;
   }
 }
 
 @media only screen and (max-width: 35em) {
-  #todo {
+  .todo {
     width: 30rem;
   }
 }
 
-#list {
+.list {
   list-style: none;
 }
 
-#list li {
+.list li {
   text-align: left;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   padding-left: 1rem;
 }
 
-#list li:nth-child(odd) {
+.list li:nth-child(odd) {
   background: #e3dede;
 }
 
-#list li:nth-child(even) {
+.list li:nth-child(even) {
   background: #a3a1a1;
 }
 
@@ -74,19 +74,25 @@ button {
   border-radius: 0.8rem;
   outline: none;
   cursor: pointer;
+  -webkit-box-shadow: 0 0.3rem 0.2rem #333;
+          box-shadow: 0 0.3rem 0.2rem #333;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 button:active {
   -webkit-transform: translateY(0.1rem);
           transform: translateY(0.1rem);
-  -webkit-box-shadow: 0 0.1rem 0.1rem #333;
-          box-shadow: 0 0.1rem 0.1rem #333;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 button.form-btn {
   background-color: #27ae60;
   margin-right: 0;
   padding: 0.8rem;
+  position: relative;
+  bottom: 0.2rem;
 }
 
 input[type="text"] {
