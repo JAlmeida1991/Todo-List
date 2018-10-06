@@ -4,6 +4,7 @@
   const form = document.querySelector(".form");
   const input = document.querySelector("#input");
   const ol = document.querySelector(".list");
+  const submitBtn = document.querySelector(".form-btn");
 
   // todos will either be null or a array of previous todos
   let todos = JSON.parse(localStorage.getItem("todos"));
@@ -17,6 +18,8 @@
 
   // *** DOM TRANSVERSAL WITH TEXT CONTENT IS BETTER WAY ACCEPT USER INPUT USING INNERHTML ***
   form.addEventListener("submit", e => {
+    // This will make the button seemed like it was clicked even if user choices to press enter
+    displaySubmitInput();
     // If user did enter a todo then excute the following code.
     if (input.value) {
       // If a completed is true for a todo, display line through class
@@ -140,5 +143,12 @@
     setTimeout(() => {
       error.remove();
     }, 1000);
+  }
+
+  function displaySubmitInput() {
+    submitBtn.classList.add("submit-js");
+    setTimeout(() => {
+      submitBtn.classList.remove("submit-js");
+    }, 250);
   }
 })();

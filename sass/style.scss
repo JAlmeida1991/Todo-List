@@ -6,6 +6,7 @@
   color: #000;
   font-size: 3rem;
   margin-bottom: 0.8rem;
+  padding-top: 1rem;
 }
 
 // Form display
@@ -57,6 +58,7 @@ button {
   cursor: pointer;
   box-shadow: 0 0.3rem 0.2rem #333;
   transition: all 0.25s;
+  text-transform: uppercase;
 
   &:active {
     transform: translateY(0.1rem);
@@ -68,17 +70,28 @@ button {
     margin-right: 0;
     padding: 0.8rem;
     position: relative;
-    bottom: 0.2rem;
+    bottom: 0.3rem;
+    margin-left: 0.4rem;
+    @media only screen and (max-width: 40em) {
+      margin-left: 0.1rem;
+    }
+    @media only screen and (max-width: 35em) {
+      width: 50%;
+      margin-bottom: 0.4rem;
+      bottom: 2;
+    }
   }
 }
 
 // Input styles
 
-input[type="text"] {
+#input {
   font-size: 1.8rem;
   width: 80%;
   margin-bottom: 1rem;
-  outline-color: $colorPrimary;
+  padding: 0.25rem;
+  // outline-color: $colorPrimary;
+  // height: 3rem;
 }
 
 // JS Generated Classes:
@@ -96,4 +109,9 @@ input[type="text"] {
   background-color: orange;
   padding: 1rem;
   font-weight: bolder;
+}
+
+.submit-js {
+  transform: translateY(0.1rem);
+  box-shadow: none;
 }
