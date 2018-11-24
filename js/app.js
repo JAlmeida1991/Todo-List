@@ -6,6 +6,7 @@
   const ol = document.querySelector(".list");
   const submitBtn = document.querySelector(".form-btn");
 
+  var hovered = false;
   // todos will either be null or a array of previous todos
   let todos = JSON.parse(localStorage.getItem("todos"));
   // if todos is null todos will be set an an empty array
@@ -84,11 +85,12 @@
   ol.addEventListener("mouseout", hideDeleteButton);
 
   function showDeleteButton(e) {
-    // console.log(e.target.firstChild);
     if (e.target.nodeName === "LI") {
       e.target.firstChild.className = "";
     } else if (e.target.nodeName === "BUTTON") {
       e.target.className = "";
+    } else if (e.target.nodeName === "I") {
+      e.target.parentNode.className = "";
     }
   }
 
@@ -97,6 +99,8 @@
       e.target.firstChild.className = "hidden-js";
     } else if (e.target.nodeName === "BUTTON") {
       e.target.className = "hidden-js";
+    } else if (e.target.nodeName === "I") {
+      e.target.parentNode.className = "hidden-js";
     }
   }
 
@@ -115,8 +119,12 @@
     const li = document.createElement("li");
     const button = document.createElement("button");
     const content = document.createTextNode(`${el}`);
-    button.textContent = "Delete";
+    const i = document.createElement("i");
+    i.classList = "fas fa-trash";
+    i.style.fontSize = "1.6rem";
+    button.appendChild(i);
     button.className = "hidden-js";
+    button.style.padding = "1.2rem";
     li.appendChild(button);
     li.appendChild(content);
     ol.appendChild(li);

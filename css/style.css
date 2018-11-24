@@ -29,7 +29,6 @@ body {
 
 .todo {
   width: 40rem;
-  padding-bottom: 0.5rem;
   margin: 2rem auto;
   background: #eee;
   text-align: center;
@@ -54,8 +53,9 @@ body {
 .list li {
   text-align: left;
   font-size: 1.8rem;
-  margin-bottom: 0.5rem;
   padding-left: 1rem;
+  word-break: break-all;
+  padding: 0.6rem;
 }
 
 .list li:nth-child(odd) {
@@ -113,7 +113,7 @@ button.form-btn {
 }
 
 #input {
-  font-size: 1.8rem;
+  font-size: 2rem;
   width: 80%;
   margin-bottom: 1rem;
   padding: 0.25rem;
@@ -125,7 +125,7 @@ button.form-btn {
 }
 
 .hidden-js {
-  display: none;
+  opacity: 0;
 }
 
 .error-js {

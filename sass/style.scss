@@ -13,7 +13,7 @@
 
 .todo {
   width: 40rem;
-  padding-bottom: 0.5rem;
+  // padding-bottom: 0.5rem;
   margin: 2rem auto;
   background: #eee;
   text-align: center;
@@ -32,9 +32,10 @@
   li {
     text-align: left;
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
     padding-left: 1rem;
-
+    word-break: break-all;
+    padding: 0.6rem;
     &:nth-child(odd) {
       background: $todoOdd;
     }
@@ -86,7 +87,7 @@ button {
 // Input styles
 
 #input {
-  font-size: 1.8rem;
+  font-size: 2rem;
   width: 80%;
   margin-bottom: 1rem;
   padding: 0.25rem;
@@ -101,7 +102,8 @@ button {
   color: $doneTodo;
 }
 .hidden-js {
-  display: none;
+  opacity: 0;
+  // transform: translateX(-100%);
 }
 
 .error-js {
