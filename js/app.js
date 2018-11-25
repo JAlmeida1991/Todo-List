@@ -6,7 +6,6 @@
   const ol = document.querySelector(".list");
   const submitBtn = document.querySelector(".form-btn");
 
-  var hovered = false;
   // todos will either be null or a array of previous todos
   let todos = JSON.parse(localStorage.getItem("todos"));
   // if todos is null todos will be set an an empty array
@@ -69,8 +68,14 @@
   });
 
   ol.addEventListener("click", e => {
+    let li;
     if (e.target.nodeName === "BUTTON") {
-      const li = e.target.parentNode;
+      li = e.target.parentNode;
+    } else if (e.target.nodeName === "I") {
+      li = e.target.parentNode.parentNode;
+    }
+    // li will only have a value if a button or i was selected
+    if (li) {
       // Need to call Array.from since ol.children is an HTMLCollection not a node list
       const todoIndex = Array.from(ol.children).indexOf(li);
       todos.splice(todoIndex, 1);
@@ -124,7 +129,7 @@
     i.style.fontSize = "1.6rem";
     button.appendChild(i);
     button.className = "hidden-js";
-    button.style.padding = "1.2rem";
+    button.style.padding = "1rem";
     li.appendChild(button);
     li.appendChild(content);
     ol.appendChild(li);

@@ -72,13 +72,13 @@ button {
   color: #fff;
   padding: 0.6rem;
   background-color: #e74c3c;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   outline: none;
   cursor: pointer;
   -webkit-box-shadow: 0 0.3rem 0.2rem #333;
           box-shadow: 0 0.3rem 0.2rem #333;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
+  -webkit-transition: opacity 1.5s;
+  transition: opacity 1.5s;
   text-transform: uppercase;
 }
 
@@ -87,6 +87,8 @@ button:active {
           transform: translateY(0.1rem);
   -webkit-box-shadow: none;
           box-shadow: none;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 button.form-btn {

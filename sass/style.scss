@@ -54,16 +54,17 @@ button {
   color: #fff;
   padding: 0.6rem;
   background-color: $deleteBtn;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   outline: none;
   cursor: pointer;
   box-shadow: 0 0.3rem 0.2rem #333;
-  transition: all 0.25s;
+  transition: opacity 1.5s;
   text-transform: uppercase;
 
   &:active {
     transform: translateY(0.1rem);
     box-shadow: none;
+    transition: all 0.25s;
   }
 
   &.form-btn {
