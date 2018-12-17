@@ -1,0 +1,45 @@
+// Form display
+
+.todo {
+  width: 40rem;
+  // padding-bottom: 0.5rem;
+  margin: 2rem auto;
+  background: #eee;
+  text-align: center;
+
+  @media only screen and (max-width: 40em) {
+    width: 35rem;
+  }
+  @media only screen and (max-width: 35em) {
+    width: 30rem;
+  }
+}
+
+.list {
+  list-style: none;
+
+  li {
+    text-align: left;
+    font-size: 1.8rem;
+    // margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    word-break: break-all;
+    padding: 0.6rem;
+    &:nth-child(odd) {
+      background: $todoOdd;
+    }
+
+    &:nth-child(even) {
+      background: $todoEven;
+    }
+  }
+}
+
+// Input styles
+
+#input {
+  font-size: 2rem;
+  width: 80%;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+}

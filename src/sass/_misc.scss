@@ -1,0 +1,22 @@
+// JS Generated Classes:
+
+.done-todo-js {
+  text-decoration: line-through;
+  color: $doneTodo;
+}
+.hidden-js {
+  opacity: 0;
+  // transform: translateX(-100%);
+}
+
+.error-js {
+  font-size: 1.4rem;
+  background-color: orange;
+  padding: 1rem;
+  font-weight: bolder;
+}
+
+.submit-js {
+  transform: translateY(0.1rem);
+  box-shadow: none;
+}

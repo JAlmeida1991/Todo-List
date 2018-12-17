@@ -1,3 +1,3 @@
 # Todo List (With Storage API)
 
-Current draft can be found at https://jalmeida1991.github.io/Todo-List/
+Current draft can be found at https://jalmeida-todolist.netlify.com/

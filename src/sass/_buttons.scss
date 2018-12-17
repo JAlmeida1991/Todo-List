@@ -1,0 +1,38 @@
+// Button styles
+
+button {
+  margin-right: 0.5rem;
+  border: none;
+  color: #fff;
+  padding: 0.6rem;
+  background-color: $deleteBtn;
+  border-radius: 0.4rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0.3rem 0.2rem #333;
+  transition: opacity 1.5s;
+  text-transform: uppercase;
+
+  &:active {
+    transform: translateY(0.1rem);
+    box-shadow: none;
+    transition: all 0.25s;
+  }
+
+  &.form-btn {
+    background-color: $submitBtn;
+    margin-right: 0;
+    padding: 0.8rem;
+    position: relative;
+    bottom: 0.3rem;
+    margin-left: 0.4rem;
+    @media only screen and (max-width: 40em) {
+      margin-left: 0.1rem;
+    }
+    @media only screen and (max-width: 35em) {
+      width: 50%;
+      margin-bottom: 0.4rem;
+      bottom: 2;
+    }
+  }
+}
